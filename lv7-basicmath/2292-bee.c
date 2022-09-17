@@ -1,15 +1,30 @@
 #include <stdio.h>
-#include <math.h>
+
+int k(int n);
+
 int main()
 {
-	double N,n;
+	int N;
+	int n=0;
 	scanf("%d",&N);
-	if(N-1==0) printf("1");
-	else if(N-1<=6) printf("2");
-	else 
+	while(1)
 	{
-		n=(-3+sqrt(9+12*N))/2;
-		printf("n");
+		if(N>k(n)&&N<=k(n+1))
+		{
+			printf("%d",n+1);
+			return 0;
+		}
+		n++;
 	}
 	return 0;
 }
+
+int k(int n)
+{
+	int ans;
+	if (n==0) ans=0;
+	else if(n==1) ans=1;
+	else ans=(n-1)*(12+(n-2)*6)/2+1;
+	return ans;
+}
+
